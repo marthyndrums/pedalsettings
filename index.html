@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Answer 3 quick questions to find a better starting setup for your double bass pedals.">
+  <title>Double Bass Pedal Setup Checker — Marthyn's Drum Camp</title>
+  <!-- Meta Pixel: same ID as original quiz. Only PageView and Lead events are used. -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+    (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','1406495980373118');
+    fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1406495980373118&amp;ev=PageView&amp;noscript=1"></noscript>
+  <style>
+    :root{--ink:#1a1a1a;--muted:#666;--faint:#858585;--line:#e5e5e5;--teal:#2E777B;--pale:#f8faf9}
+    *{box-sizing:border-box}
+    body{margin:0;background:#fff;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;padding:24px 16px 55px;line-height:1.5}
+    .wrap{width:100%;max-width:560px;margin:0 auto}
+    h1{font-size:clamp(24px,5vw,29px);line-height:1.24;letter-spacing:-.026em;margin:0 0 10px;font-weight:750}
+    .sub{font-size:15px;line-height:1.6;color:var(--muted);margin:0 0 24px}
+    .progress{display:flex;gap:6px;margin:0 0 27px}
+    .step{height:4px;flex:1;background:var(--line);border-radius:20px}
+    .step.active{background:var(--ink)} .step.done{background:#8b8b8b}
+    .panel{display:none}.panel.visible{display:block}
+    .eyebrow{font-weight:700;letter-spacing:.065em;text-transform:uppercase;color:var(--faint);font-size:11px;margin:0 0 9px}
+    .question{font-size:19px;font-weight:700;line-height:1.4;margin:0 0 18px}
+    .options{display:flex;flex-direction:column;gap:10px}
+    .option{border:1.5px solid var(--line);border-radius:12px;background:white;display:flex;align-items:center;gap:14px;padding:14px 16px;width:100%;text-align:left;cursor:pointer;font:inherit;color:var(--ink);line-height:1.4;min-height:55px;transition:border-color .12s,background .12s}
+    .option:hover{border-color:#a7a7a7;background:#fafafa}
+    .option[aria-pressed="true"]{border-color:var(--ink);background:#fafafa}
+    .dot{width:18px;height:18px;border-radius:50%;border:2px solid #ccc;flex:0 0 18px}
+    .option[aria-pressed="true"] .dot{border-color:var(--ink);background:var(--ink);box-shadow:inset 0 0 0 4px #fafafa}
+    .option-label{font-size:14px}
+    .actions{display:flex;justify-content:space-between;align-items:center;margin-top:19px;gap:12px}
+    .back{font:inherit;color:var(--muted);border:0;background:transparent;padding:10px 3px;cursor:pointer;font-size:13px}
+    .next{font:inherit;border:1.5px solid var(--ink);border-radius:9px;background:var(--ink);color:white;padding:12px 25px;font-size:14px;font-weight:700;cursor:pointer;min-width:125px}
+    .next:disabled{opacity:.28;cursor:default}
+    button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #8ac7c9;outline-offset:3px}
+    .gate{text-align:center}
+    .gate h2{font-size:clamp(22px,5.1vw,26px);line-height:1.28;margin:0 0 13px}
+    .gate .descr{font-size:15px;color:var(--muted);margin:0 0 15px;line-height:1.6}
+    .gate .promise{font-weight:650;font-size:15px;margin:0 0 23px;line-height:1.6}
+    .email{width:100%;min-height:49px;padding:13px 15px;border:1.5px solid var(--line);border-radius:11px;font:inherit;font-size:15px;color:var(--ink);margin:0 0 12px}
+    .email:focus{border-color:var(--ink);outline:2px solid #8ac7c9;outline-offset:1px}
+    .teal-btn{background:var(--teal);color:#fff;border:0;border-radius:10px;padding:14px 20px;min-height:50px;font-size:15px;font-weight:750;cursor:pointer;text-decoration:none;text-align:center;box-shadow:0 5px 15px rgba(46,119,123,.22);transition:background .12s}
+    .teal-btn:hover{background:#266468}.teal-btn:disabled{opacity:.7;cursor:progress}
+    .gate .teal-btn{width:100%}
+    .note{font-size:12px;color:#999;margin:10px 0 0}
+    .error{color:#b42318;font-size:13px;min-height:19px;margin-top:7px}
+    .result-badge{display:inline-block;color:var(--faint);border:1px solid var(--line);border-radius:7px;padding:5px 10px;font-size:11px;letter-spacing:.05em;text-transform:uppercase;font-weight:700;margin:0 0 13px}
+    .result-title{font-size:clamp(22px,5vw,26px);font-weight:750;line-height:1.3;margin:0 0 15px}
+    .result-copy{font-size:14px;line-height:1.7;color:var(--ink);margin:0 0 12px}
+    .settings{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:17px 0 13px;background:#fff}
+    .setting-row{display:grid;grid-template-columns:minmax(85px,1.05fr) minmax(76px,.75fr) minmax(104px,1.2fr);gap:9px;padding:12px 13px;align-items:center;border-bottom:1px solid var(--line);font-size:14px}
+    .setting-row:last-child{border-bottom:0}
+    .setting-row.head{background:#f6f7f7;font-size:10px;color:var(--faint);letter-spacing:.04em;text-transform:uppercase;font-weight:750}
+    .setting-row strong{font-weight:750}.setting-row .angle{font-size:20px;font-weight:750;white-space:nowrap}
+    .test-tip{font-size:13px;color:#525252;line-height:1.6;margin:0 0 15px}
+    .separator{border:0;border-top:1px solid var(--line);margin:25px 0 19px}
+    .video-intro{font-size:15px;font-weight:650;line-height:1.62;margin:0 0 15px}
+    .video-wrap{border-radius:12px;overflow:hidden;position:relative;aspect-ratio:16/9;background:#171717;margin:0 0 23px}
+    .video-wrap iframe{position:absolute;width:100%;height:100%;inset:0;border:0}
+    .offer{border:1.5px solid var(--line);border-radius:12px;padding:19px}
+    .offer-title{font-size:13px;font-weight:750;margin:0 0 7px}
+    .offer-copy{font-size:14px;margin:0 0 15px;color:#444}
+    .offer .teal-btn{display:block;font-size:14px}
+    .offer-note{font-size:11px;color:#888;margin:10px 0 0;line-height:1.5}
+    [hidden]{display:none!important}
+    @media(max-width:410px){body{padding:18px 14px 42px}.setting-row{grid-template-columns:minmax(72px,1.1fr) minmax(54px,.65fr) minmax(94px,1.35fr);gap:7px;padding:11px 10px;font-size:12px}.setting-row .angle{font-size:18px}.setting-row.head{font-size:9px}.option{padding:13px 12px}}
+    @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+  </style>
+</head>
+<body>
+<main class="wrap">
+  <section id="quiz" aria-label="Double Bass Pedal Setup Checker">
+    <header id="quiz-header">
+      <h1>Are Your Double Bass Pedals Holding You Back?</h1>
+      <p class="sub">Answer 3 quick questions to find a better starting setup for your double bass pedals.</p>
+    </header>
+    <div class="progress" id="progress" aria-hidden="true"><span class="step active"></span><span class="step"></span><span class="step"></span></div>
+    <section class="panel visible" id="q1">
+      <p class="eyebrow">Question 1 of 3</p>
+      <h2 class="question">What's your biggest struggle when playing double bass?</h2>
+      <div class="options" data-question="q1">
+        <button class="option" type="button" aria-pressed="false" data-value="stiff"><span class="dot"></span><span class="option-label">My pedals feel hard to push down</span></button>
+        <button class="option" type="button" aria-pressed="false" data-value="tempo"><span class="dot"></span><span class="option-label">I struggle when increasing the tempo</span></button>
+        <button class="option" type="button" aria-pressed="false" data-value="return"><span class="dot"></span><span class="option-label">My beaters return too slowly</span></button>
+        <button class="option" type="button" aria-pressed="false" data-value="weight"><span class="dot"></span><span class="option-label">I'm not sure if my pedal settings match my body weight</span></button>
+      </div>
+      <div class="actions"><span></span><button class="next" id="next1" type="button" disabled>Next →</button></div>
+    </section>
+    <section class="panel" id="q2">
+      <p class="eyebrow">Question 2 of 3</p>
+      <h2 class="question">At what tempo does your double bass playing start to fall apart?</h2>
+      <div class="options" data-question="q2">
+        <button class="option" type="button" aria-pressed="false" data-value="below130"><span class="dot"></span><span class="option-label">Below 130 BPM</span></button>
+        <button class="option" type="button" aria-pressed="false" data-value="130-150"><span class="dot"></span><span class="option-label">130–150 BPM</span></button>
+        <button class="option" type="button" aria-pressed="false" data-value="150-170"><span class="dot"></span><span class="option-label">150–170 BPM</span></button>
+        <button class="option" type="button" aria-pressed="false" data-value="above170"><span class="dot"></span><span class="option-label">Above 170 BPM</span></button>
+      </div>
+      <div class="actions"><button class="back" type="button" data-back="1">← Back</button><button class="next" id="next2" type="button" disabled>Next →</button></div>
+    </section>
+    <section class="panel" id="q3">
+      <p class="eyebrow">Question 3 of 3</p>
+      <h2 class="question">What's your next double bass goal?</h2>
+      <div class="options" data-question="q3">
+        <button class="option" type="button" aria-pressed="false" data-value="170"><span class="dot"></span><span class="option-label">Play loud, tight single strokes up to 170 BPM</span></button>
+        <button class="option" type="button" aria-pressed="false" data-value="220"><span class="dot"></span><span class="option-label">Reach 200–220+ BPM with less effort</span></button>
+        <button class="option" type="button" aria-pressed="false" data-value="all"><span class="dot"></span><span class="option-label">Improve speed and control across all tempos</span></button>
+      </div>
+      <div class="actions"><button class="back" type="button" data-back="2">← Back</button><button class="next" id="next3" type="button" disabled>See my results →</button></div>
+    </section>
+    <section class="panel gate" id="email-gate">
+      <h2>We Found Your Recommended Double Bass Pedal Settings!</h2>
+      <p class="descr">Discover which beater angle and spring tension to test based on your current speed and double bass goals.</p>
+      <p class="promise">Enter your email to see your personalized result.</p>
+      <form id="subscribe-form" novalidate>
+        <label class="sr-only" for="email-input" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">Email address</label>
+        <input class="email" id="email-input" name="email_address" type="email" placeholder="Your email address" inputmode="email" autocomplete="email" required>
+        <button class="teal-btn" id="submit-btn" type="submit">SHOW MY PEDAL SETTINGS →</button>
+        <div class="error" id="email-error" role="alert" aria-live="polite"></div>
+        <p class="note">No spam. Unsubscribe anytime.</p>
+      </form>
+    </section>
+  </section>
+  <section class="panel" id="result" aria-live="polite" aria-label="Your personalized double bass pedal settings"></section>
+</main>
+<script>
+(function(){'use strict';
+  // NEW Kit form: Pedal Setup Checker (separate from muscle-group quiz).
+  const KIT_ENDPOINT='https://app.kit.com/forms/10241736/subscriptions';
+  const VIDEO='https://player.vimeo.com/video/1227014189?badge=0&autopause=0&player_id=0&app_id=58479';
+  const SKOOL='https://www.skool.com/marthyn/about';
+  const answers={q1:null,q2:null,q3:null};
+  let didSubmit=false;
+
+  const openings={
+    stiff:'You mentioned that your pedals feel hard to push down. Your spring tension might be too high.',
+    tempo:'You mentioned that your double bass falls apart as you increase the tempo. Your pedal settings could be working against you.',
+    return:'You mentioned that your beaters return too slowly. Your spring tension might be too low.',
+    weight:"You're unsure whether your pedals are set up for your body weight. Let's start with settings that suit your double bass goal."
+  };
+  const tempoPhrases={
+    below130:'You said your double bass starts to fall apart below 130 BPM.',
+    '130-150':'You said your double bass starts to fall apart around 130–150 BPM.',
+    '150-170':'You said your double bass starts to fall apart around 150–170 BPM.',
+    above170:'You said your double bass starts to fall apart above 170 BPM.'
+  };
+  const settings={
+    flat:{name:'Flat Foot',angle:'30°',spring:'Medium to high'},
+    ankle:{name:'Ankle',angle:'45°',spring:'Low to medium'}
+  };
+  function resultFor(a){
+    let kind,explanation,tip;
+    if(a.q3==='170'){
+      kind='flat';
+      explanation='For your goal of loud, tight single strokes up to 170 BPM, I recommend the Flat Foot technique.';
+      tip='Try these settings at a comfortable tempo and pay attention to how easily your beaters return.';
+    }else if(a.q3==='220' && ['below130','130-150'].includes(a.q2)){
+      kind='both';
+      explanation='To reach 200–220+ BPM, I recommend both techniques. Use Flat Foot to build toward 170 BPM, then Ankle for faster tempos.';
+      tip='These are starting settings to test during practice.';
+    }else if(a.q3==='220'){
+      kind='ankle';
+      explanation='Since you’re already working at faster tempos and want to push further, I recommend focusing on the Ankle technique.';
+      tip='Try these settings at a comfortable tempo and check how your pedals respond.';
+    }else{
+      kind='both';
+      explanation='For speed and control across all tempos, I recommend both techniques. Start with Flat Foot for mid tempos and use Ankle for the faster ones.';
+      tip='These are starting settings to test during practice.';
+    }
+    return {kind,explanation,tip};
+  }
+  function settingsTable(kind){
+    const rows=kind==='both'?[settings.flat,settings.ankle]:[settings[kind]];
+    const title='Technique, beater angle and spring tension';
+    return `<div class="settings" role="table" aria-label="${title}">
+      <div class="setting-row head" role="row"><span role="columnheader">Technique</span><span role="columnheader">Beater angle</span><span role="columnheader">Spring tension</span></div>
+      ${rows.map(s=>`<div class="setting-row" role="row"><strong role="cell">${s.name}</strong><span class="angle" role="cell">${s.angle}</span><span role="cell">${s.spring}</span></div>`).join('')}
+    </div>`;
+  }
+  function renderResult(){
+    const rec=resultFor(answers);
+    const result=document.getElementById('result');
+    result.innerHTML=`
+      <span class="result-badge">Your personalized pedal setup</span>
+      <h2 class="result-title">Your Recommended Double Bass Pedal Settings</h2>
+      <p class="result-copy">${openings[answers.q1]}</p>
+      <p class="result-copy">${tempoPhrases[answers.q2]} ${rec.explanation}</p>
+      ${settingsTable(rec.kind)}
+      <p class="test-tip">${rec.tip}</p>
+      <hr class="separator">
+      <p class="video-intro">Watch the short video below to learn how to use the right foot technique to reach your double bass goals.</p>
+      <div class="video-wrap"><iframe title="Marthyn's Drum Camp — how our training works" src="${VIDEO}" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+      <div class="offer">
+        <p class="offer-title">Start your 7-day free trial of Marthyn's Drum Camp</p>
+        <p class="offer-copy">Learn how to practice the right movements, starting on the floor and then transferring them to your pedals.</p>
+        <a class="teal-btn" href="${SKOOL}">TEST IT FOR FREE →</a>
+        <p class="offer-note">Your trial is free for 7 days. You can decide whether to continue before the trial ends.</p>
+      </div>`;
+    document.getElementById('quiz').hidden=true;
+    result.classList.add('visible');
+    window.scrollTo(0,0);
+  }
+  function showPanel(id){
+    document.getElementById('quiz-header').hidden=(id==='email-gate');
+    for(const panel of document.querySelectorAll('#quiz .panel')) panel.classList.toggle('visible',panel.id===id);
+    const progress=document.getElementById('progress');
+    if(id==='email-gate'){progress.hidden=true}
+    else{
+      progress.hidden=false;
+      const idx=Number(id.slice(1));
+      Array.from(progress.children).forEach((step,i)=>{
+        step.classList.toggle('active',i===idx-1);
+        step.classList.toggle('done',i<idx-1);
+      });
+    }
+    window.scrollTo(0,0);
+  }
+  document.querySelectorAll('.options').forEach(group=>{
+    group.addEventListener('click',e=>{
+      const el=e.target.closest('.option'); if(!el)return;
+      const q=group.dataset.question;
+      answers[q]=el.dataset.value;
+      group.querySelectorAll('.option').forEach(o=>o.setAttribute('aria-pressed',String(o===el)));
+      document.getElementById('next'+q.slice(1)).disabled=false;
+    });
+  });
+  for(let i=1;i<=3;i++){
+    document.getElementById('next'+i).addEventListener('click',()=>{
+      if(!answers['q'+i])return;
+      showPanel(i===3?'email-gate':'q'+(i+1));
+    });
+  }
+  document.querySelectorAll('[data-back]').forEach(btn=>btn.addEventListener('click',()=>showPanel('q'+btn.dataset.back)));
+  document.getElementById('subscribe-form').addEventListener('submit',function(e){
+    e.preventDefault();
+    if(didSubmit)return;
+    if(!answers.q1 || !answers.q2 || !answers.q3){showPanel('q1');return}
+    const input=document.getElementById('email-input');
+    const email=input.value.trim();
+    const err=document.getElementById('email-error');
+    input.value=email;
+    if(!input.checkValidity() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+      err.textContent='Please enter a valid email address.';input.focus();return;
+    }
+    err.textContent='';
+    didSubmit=true;
+    const fd=new FormData(); fd.append('email_address',email);
+    // Same submission method as the first quiz; cross-origin no-cors responses are opaque.
+    // The page does not claim Kit has verified or delivered the subscriber email.
+    try{fetch(KIT_ENDPOINT,{method:'POST',body:fd,mode:'no-cors',keepalive:true}).catch(()=>{});}catch(e){}
+    renderResult();
+    // Lead indicates the email gate was submitted and the results page was displayed,
+    // NOT that Kit has confirmed deliverability or that a Skool trial was created.
+    if(typeof window.fbq==='function') window.fbq('track','Lead');
+  });
+  // Expose a read-only diagnostic for local QA; not sent to analytics.
+  window.__pedalCheckerTest={resultFor, getAnswers:()=>({...answers}), getFormUrl:()=>KIT_ENDPOINT};
+})();
+</script>
+</body>
+</html>
